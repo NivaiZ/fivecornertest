@@ -1,0 +1,52 @@
+{
+  "name": "fivecornerprod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"source/less/**/*.less\" --syntax less",
+    "test": "npm run editorconfig && npm run stylelint && eslint source/js/",
+    "build": "gulp build",
+    "start": "gulp start",
+    "sprite": "gulp sprite",
+    "img": "gulp images && gulp copy",
+    "prod": "gulp prod"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/less/**/*.less"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NivaiZ/fivecornertest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NivaiZ/fivecornertest/issues"
+  },
+  "homepage": "https://github.com/NivaiZ/fivecornertest#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "browser-sync": "^2.27.10",
+    "gulp": "^4.0.2",
+    "gulp-less": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "linthtml-config-htmlacademy": "^1.0.3",
+    "postcss-csso": "^6.0.1",
+    "stylelint": "^14.14.0",
+    "stylelint-config-htmlacademy": "^1.1.2"
+  }
+}

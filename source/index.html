@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Углов</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-body container">
+
+  <header class="header-block">
+    <nav class="header-block__wrapper">
+      <ul class="header-block__inner">
+
+        <li class="header-block__search search-header">
+          <form action="https://echo.htmlacademy.ru" method="post" class="search-header__item">
+            <button class="search-header__submit" type="submit">
+              <svg class="header-block__svg" width="25" height="25">
+                <use xlink:href="img/sprite.svg#search-header"></use>
+              </svg>
+            </button>
+            <input class="search-header__enter" type="search" placeholder="Поиск">
+          </form>
+        </li>
+      </ul>
+
+      <ul class="header-block__box">
+        <li class="header-block__icon header-block__icon--login">
+          <a href="#" class="header-block__link header-block__link--login">
+            <svg class="header-block__svg" width="25" height="25">
+              <use xlink:href="img/sprite.svg#login-icon"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="header-block__icon header-block__icon--favorite">
+          <a href="#" class="header-block__link header-block__link--favorite">
+            <svg class="header-block__svg" width="25" height="25">
+              <use xlink:href="img/sprite.svg#favorite-icon"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="header-block__icon header-block__icon--basket">
+          <a href="#" class="header-block__link header-block__link--basket">
+            <svg class="header-block__svg" width="25" height="25">
+              <use xlink:href="img/sprite.svg#basket-icon"></use>
+            </svg>
+            <span class="header-block__count">4</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <ul class="header-bottom">
+      <li class="header-bottom-list">
+        <a href="#" class="header-bottom__link">Страница 1</a>
+      </li>
+
+      <li class="header-bottom-list">
+        <a href="#" class="header-bottom__link">Страница 2</a>
+      </li>
+
+      <li class="header-bottom-list">
+        <a href="#" class="header-bottom__link">Страница 3</a>
+      </li>
+
+      <li class="header-bottom-list">
+        <svg class="header-block__svg" width="160" height="50">
+          <use xlink:href="img/sprite.svg#header-icon"></use>
+        </svg>
+      </li>
+
+      <li class="header-bottom-list">
+        <a href="#" class="header-bottom__link">Страница 4</a>
+      </li>
+
+      <li class="header-bottom-list">
+        <a href="#" class="header-bottom__link">Страница 5</a>
+      </li>
+
+      <li class="header-bottom-list">
+        <a href="#" class="header-bottom__link">Страница 6</a>
+      </li>
+
+    </ul>
+  </header>
+
+  <main class="page-main">
+    <section class="breadcrumbs-block">
+
+      <ul class="breadcrumbs-block__list">
+
+        <li class="breadcrumbs-block__item">
+          <a href="#" class="breadcrumbs-block__noactive">Главная</a>
+        </li>
+
+        <li class="breadcrumbs-block__item">
+          <span class="breadcrumbs-block__separator">/</span>
+        </li>
+
+        <li class="breadcrumbs-block__item">
+          <a href="#" class="breadcrumbs-block__link">Корзина</a>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="breadcrumbs-bottom">
+      <h2 class="breadcrumbs-bottom__heading">Корзина</h2>
+      <ul class="breadcrumbs-bottom__list">
+
+        <li class="breadcrumbs-bottom__item">
+          <p class="breadcrumbs-bottom__text">Есть аккаунт?</p>
+        </li>
+
+        <li class="breadcrumbs-bottom__item">
+          <a href="#" class="breadcrumbs-bottom__link">Войти</a>
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="form-order">
+      <form class="form-order__block" method="post" action="#">
+        <ul class="form-order__list">
+
+          <li class="form-order__item">
+            <label class="form-order__caption" for="address">Адрес</label>
+            <input class="form-order__address" id="address" type="text">
+          </li>
+
+          <li class="form-order__item">
+            <div class="div">
+              <label class="form-order__caption" for="name">Ваше Имя</label>
+              <input class="form-order__name" id="name" type="text">
+            </div>
+            <div class="div2">
+              <label class="form-order__caption" for="phone">Ваше Телефон</label>
+              <input class="form-order__name" id="phone" type="text">
+            </div>
+          </li>
+
+        </ul>
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>
