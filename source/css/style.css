@@ -457,5 +457,54 @@ body {
   text-decoration: none;
   color: #000000;
 }
+.breadcrumbs-bottom__heading {
+  font-size: 40px;
+  line-height: 46px;
+  color: #000000;
+  font-weight: 700;
+  margin: 0;
+}
+.breadcrumbs-bottom__list {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.breadcrumbs-bottom__item {
+  list-style: none;
+}
+.breadcrumbs-bottom__link {
+  color: #9F9F9F;
+  transition: 0.5s ease;
+}
+.breadcrumbs-bottom__link:hover {
+  color: #000000;
+}
+.form-order__item {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.form-order__list {
+  padding: 0;
+  margin: 0;
+}
+.form-order__inner {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.form-order__input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.form-order__input:focus {
+  outline: none;
+}
+.form-order__box {
+  display: flex;
+  flex-direction: column;
+}
 
 /*# sourceMappingURL=style.css.map */

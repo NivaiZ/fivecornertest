@@ -130,24 +130,44 @@
 
           <li class="form-order__item">
             <label class="form-order__caption" for="address">Адрес</label>
-            <input class="form-order__address" id="address" type="text">
+            <input class="form-order__input form-order__address" id="address" type="text">
+          </li>
+
+          <li class="form-order__inner">
+            <div class="form-order__box">
+              <label class="form-order__caption" for="name">Ваше Имя</label>
+              <input class="form-order__input form-order__name" id="name" type="text">
+            </div>
+            <div class="form-order__box">
+              <label class="form-order__caption" for="phone">Ваше Телефон</label>
+              <input class="form-order__input form-order__name" id="phone" type="text">
+            </div>
           </li>
 
           <li class="form-order__item">
-            <div class="div">
-              <label class="form-order__caption" for="name">Ваше Имя</label>
-              <input class="form-order__name" id="name" type="text">
-            </div>
-            <div class="div2">
-              <label class="form-order__caption" for="phone">Ваше Телефон</label>
-              <input class="form-order__name" id="phone" type="text">
-            </div>
+            <label class="form-order__caption" for="email">Ваш Email</label>
+            <input class="form-order__input form-order__email" id="email" type="email">
+          </li>
+
+          <li class="form-order__item">
+            <select class="form-order__select" id="packing-select">
+              <option class="form-order__signature" value="">Тип упаковки</option>
+              <option value="unpacked">Без упаковки</option>
+              <option value="standard">Стандартная</option>
+              <option value="gift">Подарочная</option>
+            </select>
+          </li>
+
+          <li class="form-order__item">
+            <label class="form-order__caption" for="text">Введите комментарий</label>
+            <textarea class="form-order__input form-order__email" id="text"></textarea>
           </li>
 
         </ul>
       </form>
     </section>
   </main>
+  <script src="https://unpkg.com/imask"></script>
 </body>
 
 </html>
