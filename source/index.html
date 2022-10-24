@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5 Углов</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 
 <body class="page-body container">
@@ -14,6 +15,21 @@
   <header class="header-block">
     <nav class="header-block__wrapper">
       <ul class="header-block__inner">
+
+        <li class="header-block__packing">
+          <button class="header-block__burger" type="button" aria-label="burger-menu">
+            <span class="header-block__toggle"></span>
+          </button>
+        </li>
+
+        <li class="header-block__content">
+          <div>
+            <a class="header-block__link" href="#">Link1</a>
+            <a class="header-block__link" href="#">Link2</a>
+            <a class="header-block__link" href="#">Link3</a>
+            <a class="header-block__link" href="#">Link4</a>
+          </div>
+        </li>
 
         <li class="header-block__search search-header">
           <form action="https://echo.htmlacademy.ru" method="post" class="search-header__item">
@@ -125,32 +141,36 @@
     </section>
 
     <section class="form-order">
-      <form class="form-order__block" method="post" action="#">
+      <form class="form-order__block" method="post" action="https://echo.htmlacademy.ru" id="form-basket">
         <ul class="form-order__list">
 
           <li class="form-order__item">
             <label class="form-order__caption form-order__title" for="search">Адрес</label>
-            <input class="form-order__input form-order__address" id="search">
+            <input class="form-order__input form-order__address form-order__validation" id="search" name="address"
+              required>
           </li>
 
           <li class="form-order__inner">
             <div class="form-order__box">
               <label class="form-order__caption" for="name">Ваше Имя</label>
-              <input class="form-order__input form-order__name" id="name" type="text" placeholder="Ваше Имя">
+              <input class="form-order__input form-order__name form-order__validation" id="name" type="text"
+                placeholder="Ваше Имя" name="name" required>
             </div>
             <div class="form-order__box">
               <label class="form-order__caption" for="phone">Ваше Телефон</label>
-              <input class="form-order__input form-order__name" id="phone" type="text" placeholder="Ваше Телефон">
+              <input class="form-order__input form-order__name form-order__validation" id="phone" type="text"
+                placeholder="Ваше Телефон" name="phone" required>
             </div>
           </li>
 
           <li class="form-order__item">
             <label class="form-order__caption" for="email">Ваш Email</label>
-            <input class="form-order__input form-order__email" id="email" type="email" placeholder="Ваш Email">
+            <input class="form-order__input form-order__email form-order__validation" id="email" type="email"
+              placeholder="Ваш Email" name="email" required>
           </li>
 
           <li class="form-order__item">
-            <select class="form-order__select" id="packing-select">
+            <select class="form-order__select form-order__validation" id="packing-select">
               <option class="form-order__signature" value="">Тип упаковки</option>
               <option value="unpacked">Без упаковки</option>
               <option value="standard">Стандартная</option>
@@ -160,8 +180,8 @@
 
           <li class="form-order__item">
             <label class="form-order__caption" for="text">Введите комментарий</label>
-            <textarea class="form-order__input form-order__textarea" id="text"
-              placeholder="Введите комментарий"></textarea>
+            <textarea class="form-order__input form-order__textarea" id="text" placeholder="Введите комментарий"
+              name="text"></textarea>
           </li>
 
           <li class="form-order__item form-order__pick">
@@ -169,14 +189,18 @@
           </li>
 
           <li class="form-order__choose">
-            <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+
+            <picture>
+              <source media="(max-width:1110px)" srcset="../img/giftmobile.png">
+              <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+            </picture>
 
             <div class="form-order__wrapper">
               <div class="form-order__card">
                 <p class="form-order__item form-order__product">Товар 1</p>
               </div>
 
-              <p class="form-order__item">Описание товара, <br>которое может быть длинным</p>
+              <p class="form-order__item">Описание товара, которое может быть длинным</p>
 
               <div class="form-order__count">
                 <button class="form-order__button form-order__button--minus" type="button">
@@ -202,14 +226,18 @@
           </li>
 
           <li class="form-order__choose">
-            <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+
+            <picture>
+              <source media="(max-width:1110px)" srcset="../img/giftmobile.png">
+              <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+            </picture>
 
             <div class="form-order__wrapper">
               <div class="form-order__card">
                 <p class="form-order__item form-order__product">Товар 2</p>
               </div>
 
-              <p class="form-order__item">Описание товара, <br>которое может быть длинным</p>
+              <p class="form-order__item">Описание товара, которое может быть очень-очень длинным</p>
 
               <div class="form-order__count">
                 <button class="form-order__button form-order__button--minus" type="button">
@@ -235,14 +263,17 @@
           </li>
 
           <li class="form-order__choose">
-            <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+            <picture>
+              <source media="(max-width:1110px)" srcset="../img/giftmobile.png">
+              <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+            </picture>
 
             <div class="form-order__wrapper">
               <div class="form-order__card">
                 <p class="form-order__item form-order__product">Товар 3</p>
               </div>
 
-              <p class="form-order__item">Описание товара, <br>которое может быть длинным</p>
+              <p class="form-order__item">Короткое описание товара</p>
 
               <div class="form-order__count">
                 <button class="form-order__button form-order__button--minus" type="button">
@@ -284,8 +315,9 @@
       </form>
     </section>
   </main>
+  <script src="https://unpkg.com/imask"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/choices.js/10.1.0/choices.min.js"></script>
   <script src="js/index.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.3/imask.min.js"></script> -->
 </body>
 
 </html>

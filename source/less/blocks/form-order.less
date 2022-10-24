@@ -7,6 +7,7 @@
   color: @basic-gray;
   font-weight: @deafult-weight__regular;
   margin: 0;
+  word-break: break-word;
 }
 
 .form-order__pick {
@@ -30,7 +31,7 @@
   border-right: none;
   border-bottom: 1px solid @basic-gray;
   padding-bottom: 9px;
-  transform: @basic-transition;
+  transition: @basic-transition;
 
   &:focus {
     outline: none;
@@ -152,6 +153,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin-left: 20px;
+  width: 100%;
 }
 
 .form-order__number {
@@ -187,5 +189,57 @@
   &:hover {
     background-color: @basic-black;
     color: @basic-white;
+  }
+}
+
+.form-order__item .choices__inner {
+  min-height: unset;
+  border-bottom: 1px solid @basic-gray;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  padding: 7.5px 0 3.75px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+}
+
+.form-order__item .choices__placeholder {
+  opacity: unset;
+}
+
+.form-order__item .choices[data-type*=select-one] {
+  &::after {
+    content: url("../img/arrow.png");
+    margin-top: unset;
+    border-style: none;
+    border-color: unset;
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.form-order__item .choices__list--dropdown .choices__item,
+.choices__list[aria-expanded] .choices__item {
+  &:hover {
+    color: @basic-black;
+  }
+}
+.form-order__item .is-open .choices__list--dropdown, .is-open .choices__list[aria-expanded] {
+  border-color: @basic-gray;
+}
+
+.form-order__validation {
+  &:focus:required:invalid {
+    border-bottom: 1px solid @basic-red;
+  }
+
+  &:focus:required:valid {
+    border-bottom: 1px solid @basic-gray;
+  }
+
+  &:valid {
+    border-color: @basic-gray;
+    color: @basic-black;
   }
 }

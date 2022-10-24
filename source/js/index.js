@@ -21,24 +21,19 @@ function init() {
     }
     getAddress(coords);
   });
-  //Отображение метки(балуна на карте)
+
   myGeoObject = new ymaps.GeoObject({
-    // Описание геометрии.
     geometry: {
       type: "Point",
       coordinates: [60.033081, 30.428086]
     },
-    // Свойства.
+
     properties: {
-      // Контент метки.
       iconCaption: 'Проспект Просвещения, 99',
 
     }
   }, {
-    // Опции.
-    // Иконка метки будет растягиваться под размер ее содержимого.
     preset: 'islands#greenDotIconWithCaption',
-    // Метку можно перемещать.
   }),
     myPieChart = new ymaps.Placemark([
       60.033081, 30.428086
@@ -63,14 +58,10 @@ function init() {
 
       myPlacemark.properties
         .set({
-          // Формируем строку с данными об объекте.
           iconCaption: [
-            // Название населенного пункта или вышестоящее административно-территориальное образование.
             firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
-            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
             firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
           ].filter(Boolean).join(', '),
-          // В качестве контента балуна задаем строку с адресом объекта.
           balloonContent: firstGeoObject.getAddressLine()
         });
     });
@@ -81,10 +72,7 @@ function init() {
       const firstGeoObject = res.geoObjects.get(0);
       const coords = firstGeoObject.geometry.getCoordinates();
 
-      // Область видимости геообъекта.
       const bounds = firstGeoObject.properties.get('boundedBy');
-
-      // Масштабируем карту на область видимости геообъекта.
       myMap.setBounds(bounds, {
         checkZoomRange: true
       });
@@ -94,7 +82,6 @@ function init() {
       getAddress(myPlacemark.geometry.getCoordinates());
 
     }, error => {
-      // Обработка ошибки
       console.log(error)
     });
   }
@@ -107,8 +94,66 @@ function init() {
     getPlaceBySuggestView(chosenAddress);
   });
 
-  //end init
 }
 
-//end win on load
 ymaps.ready(init);
+
+// telefon mask
+var phoneMask = IMask(
+  document.getElementById('phone'), {
+  mask: '+{7}(000)000-00-00'
+});
+
+// select dropdown
+const element = document.querySelector('.form-order__select');
+const choices = new Choices(element, {
+  searchEnabled: false,
+  itemSelectText: 'Выберите нужную упаковку',
+});
+
+
+const orderForm = document.querySelector('#form-basket');
+
+function retrieveFormValue() {
+  event.preventDefault();
+
+  const formData = new FormData(orderForm);
+  const values = Object.fromEntries(formData.entries());
+  alert('Данные отправлены');
+  console.log('Данные корзины', values);
+}
+
+orderForm.addEventListener('submit', retrieveFormValue)
+
+//burger-menu
+
+const clickBurgerMenuFunction = () => {
+  const burgerButton = document.querySelector(".header-block__burger");
+  const contentMenu = document.querySelector('.header-block__content');
+
+  burgerButton.addEventListener('click', () => {
+    burgerButton.classList.toggle('header-block__burger--open');
+    contentMenu.classList.toggle('header-block__content--open');
+  })
+
+  window.addEventListener('click', e => {
+    const target = e.target
+    if (!target.closest('.header-block__content') && !target.closest('.header-block__burger')) {
+      contentMenu.classList.remove('header-block__content--open');
+      burgerButton.classList.remove('header-block__burger--open');
+    }
+  })
+
+  window.addEventListener("keydown", (evt) => {
+    if (evt.keyCode === 27) {
+      if (contentMenu.classList.contains('header-block__content--open')) {
+        evt.preventDefault();
+        contentMenu.classList.remove('header-block__content--open');
+        burgerButton.classList.remove('header-block__burger--open');
+      }
+    }
+  });
+
+}
+
+clickBurgerMenuFunction();

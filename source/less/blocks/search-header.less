@@ -6,6 +6,7 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .search-header__enter {
@@ -27,5 +28,11 @@
 
   &::placeholder:hover {
     color: @basic-black;
+  }
+
+  @media (max-width: 1140px) {
+    width: 0;
+    margin-left: unset;
+    padding: 0;
   }
 }
