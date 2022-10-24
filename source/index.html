@@ -129,24 +129,24 @@
         <ul class="form-order__list">
 
           <li class="form-order__item">
-            <label class="form-order__caption" for="address">Адрес</label>
-            <input class="form-order__input form-order__address" id="address" type="text">
+            <label class="form-order__caption form-order__title" for="search">Адрес</label>
+            <input class="form-order__input form-order__address" id="search">
           </li>
 
           <li class="form-order__inner">
             <div class="form-order__box">
               <label class="form-order__caption" for="name">Ваше Имя</label>
-              <input class="form-order__input form-order__name" id="name" type="text">
+              <input class="form-order__input form-order__name" id="name" type="text" placeholder="Ваше Имя">
             </div>
             <div class="form-order__box">
               <label class="form-order__caption" for="phone">Ваше Телефон</label>
-              <input class="form-order__input form-order__name" id="phone" type="text">
+              <input class="form-order__input form-order__name" id="phone" type="text" placeholder="Ваше Телефон">
             </div>
           </li>
 
           <li class="form-order__item">
             <label class="form-order__caption" for="email">Ваш Email</label>
-            <input class="form-order__input form-order__email" id="email" type="email">
+            <input class="form-order__input form-order__email" id="email" type="email" placeholder="Ваш Email">
           </li>
 
           <li class="form-order__item">
@@ -160,14 +160,132 @@
 
           <li class="form-order__item">
             <label class="form-order__caption" for="text">Введите комментарий</label>
-            <textarea class="form-order__input form-order__email" id="text"></textarea>
+            <textarea class="form-order__input form-order__textarea" id="text"
+              placeholder="Введите комментарий"></textarea>
+          </li>
+
+          <li class="form-order__item form-order__pick">
+            <h2 class="form-order__basket">Выбранные товары:</h2>
+          </li>
+
+          <li class="form-order__choose">
+            <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+
+            <div class="form-order__wrapper">
+              <div class="form-order__card">
+                <p class="form-order__item form-order__product">Товар 1</p>
+              </div>
+
+              <p class="form-order__item">Описание товара, <br>которое может быть длинным</p>
+
+              <div class="form-order__count">
+                <button class="form-order__button form-order__button--minus" type="button">
+                  <svg class="form-order__svg" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-minus"></use>
+                  </svg>
+                </button>
+
+                <span class="form-order__number">1</span>
+                <button class="form-order__button form-order__button--plus" type="button">
+                  <svg class="form-order__svg" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-plus"></use>
+                  </svg>
+                </button>
+
+              </div>
+            </div>
+
+            <div class="form-order__bottom">
+              <p class="form-order__price">1090 руб.</p>
+              <a class="form-order__delete" href="#">Удалить</a>
+            </div>
+          </li>
+
+          <li class="form-order__choose">
+            <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+
+            <div class="form-order__wrapper">
+              <div class="form-order__card">
+                <p class="form-order__item form-order__product">Товар 2</p>
+              </div>
+
+              <p class="form-order__item">Описание товара, <br>которое может быть длинным</p>
+
+              <div class="form-order__count">
+                <button class="form-order__button form-order__button--minus" type="button">
+                  <svg class="form-order__svg" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-minus"></use>
+                  </svg>
+                </button>
+
+                <span class="form-order__number">1</span>
+                <button class="form-order__button form-order__button--plus" type="button">
+                  <svg class="form-order__svg" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-plus"></use>
+                  </svg>
+                </button>
+
+              </div>
+            </div>
+
+            <div class="form-order__bottom">
+              <p class="form-order__price">700 руб.</p>
+              <a class="form-order__delete" href="#">Удалить</a>
+            </div>
+          </li>
+
+          <li class="form-order__choose">
+            <img class="form-order__img" alt="gift" src="../img/giftdesk.png">
+
+            <div class="form-order__wrapper">
+              <div class="form-order__card">
+                <p class="form-order__item form-order__product">Товар 3</p>
+              </div>
+
+              <p class="form-order__item">Описание товара, <br>которое может быть длинным</p>
+
+              <div class="form-order__count">
+                <button class="form-order__button form-order__button--minus" type="button">
+                  <svg class="form-order__svg" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-minus"></use>
+                  </svg>
+                </button>
+
+                <span class="form-order__number">1</span>
+                <button class="form-order__button form-order__button--plus" type="button">
+                  <svg class="form-order__svg" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-plus"></use>
+                  </svg>
+                </button>
+
+              </div>
+            </div>
+
+            <div class="form-order__bottom">
+              <p class="form-order__price">2000 руб.</p>
+              <a class="form-order__delete" href="#">Удалить</a>
+            </div>
           </li>
 
         </ul>
+
+        <ul class="form-map">
+          <li class="form-map__item" id="form-map">
+            <script
+              src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c0183649-9564-47e9-a344-5e6d830db0fc"></script>
+          </li>
+
+          <li class="form-map__footnote">
+            <p class="form-map__total">Итог:</p>
+            <p class="form-map__total">3790 руб.</p>
+          </li>
+        </ul>
+        <button class="form-order__submit" type="submit">Купить</button>
       </form>
     </section>
   </main>
-  <script src="https://unpkg.com/imask"></script>
+  <script src="js/index.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.3/imask.min.js"></script> -->
 </body>
 
 </html>

@@ -10,7 +10,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("../fonts/Inter-Bold..woff2") format("woff2"), url("../fonts/Inter-Bold..woff") format("woff");
+  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -408,12 +408,19 @@ body {
   border-bottom: 1px solid #9F9F9F;
   outline: none;
   margin-left: 20px;
+  transition: 0.5s ease;
 }
 .search-header__enter:hover {
   border-color: #000000;
 }
 .search-header__enter:focus {
   border-color: #000000;
+}
+.search-header__enter::-moz-placeholder:hover {
+  color: #000000;
+}
+.search-header__enter::placeholder:hover {
+  color: #000000;
 }
 .header-bottom {
   display: flex;
@@ -472,6 +479,7 @@ body {
 }
 .breadcrumbs-bottom__item {
   list-style: none;
+  padding-right: 5px;
 }
 .breadcrumbs-bottom__link {
   color: #9F9F9F;
@@ -484,6 +492,14 @@ body {
   display: flex;
   flex-direction: column;
   list-style: none;
+  font-size: 16px;
+  line-height: 120%;
+  color: #9F9F9F;
+  font-weight: 400;
+  margin: 0;
+}
+.form-order__pick {
+  padding-top: 70px;
 }
 .form-order__list {
   padding: 0;
@@ -498,13 +514,170 @@ body {
   border-top: none;
   border-left: none;
   border-right: none;
+  border-bottom: 1px solid #9F9F9F;
+  padding-bottom: 9px;
+  transform: 0.5s ease;
 }
 .form-order__input:focus {
   outline: none;
+  border-bottom: 1px solid #000000;
+}
+.form-order__input::-moz-placeholder {
+  color: #9F9F9F;
+}
+.form-order__input::placeholder {
+  color: #9F9F9F;
+}
+.form-order__input:hover {
+  border-color: #000000;
 }
 .form-order__box {
   display: flex;
   flex-direction: column;
+}
+.form-order__textarea {
+  resize: none;
+}
+.form-order__box:nth-child(1) {
+  padding-right: 35px;
+}
+.form-order__caption {
+  visibility: hidden;
+}
+.form-order__title {
+  visibility: visible;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+}
+.form-order__block {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.form-order__basket {
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #000000;
+}
+.form-order__choose {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  border-bottom: 1px solid #9F9F9F;
+}
+.form-order__choose:last-child {
+  border-bottom: none;
+}
+.form-order__card {
+  display: flex;
+  flex-direction: row;
+}
+.form-order__price {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
+  margin: 0;
+  white-space: pre;
+}
+.form-order__name {
+  color: #9F9F9F;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+}
+.form-order__button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.form-order__count {
+  border: 1px solid #000000;
+  width: 100%;
+  max-width: 112px;
+  height: 38px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.form-order__delete {
+  font-size: 14px;
+  line-height: 16px;
+  color: #9F9F9F;
+  font-weight: 400;
+  transition: 0.5s ease;
+  align-self: self-end;
+}
+.form-order__delete:hover {
+  color: #000000;
+}
+.form-order__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+.form-order__number {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
+}
+.form-order__bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-order__product {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
+  color: #000000;
+}
+.form-order__submit {
+  padding-top: 23px;
+  padding-bottom: 22px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  transition: 0.5s ease;
+  background-color: transparent;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
+}
+.form-order__submit:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.form-map__item {
+  list-style: none;
+  width: 100%;
+  height: 700px;
+  margin: 0;
+  padding: 0;
+}
+.form-map {
+  padding: 0;
+  margin: 0;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+}
+.form-map__footnote {
+  display: flex;
+  list-style: none;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: 700;
+  background-color: #000000;
+  opacity: 0.8;
+}
+.form-map__total {
+  color: #FFFFFF;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
