@@ -9,7 +9,7 @@ FiveCorner
 
 `npm start` - Запуск проекта
 
-`npm run prod` - финальная сборка проекта.
+`npm run prod` - финальная сборка проекта без запуска локального сервера.
 
 ---
 # fivecornertest
