@@ -4,6 +4,10 @@
   height: 700px;
   margin: 0;
   padding: 0;
+
+  @media (max-width: @basic-breakpoints) {
+    height: 200px;
+  }
 }
 
 .form-map {
@@ -11,6 +15,11 @@
   margin: 0;
   height: fit-content;
   position: relative;
+  margin-top: -125px;
+
+  @media (max-width: @basic-breakpoints) {
+    margin-top: 0;
+  }
 }
 
 .form-map__footnote {
@@ -21,9 +30,26 @@
   font-weight: @deafult-weight__bold;
   background-color: @basic-black;
   opacity: 0.8;
+  position: absolute;
+  width: 100%;
+
+  @media (max-width: @basic-breakpoints) {
+    background-color: unset;
+    opacity: unset;
+    font-size: 26px;
+    line-height: 30px;
+    position: static;
+    width: unset;
+  }
 }
 
 .form-map__total {
   color: @basic-white;
   width: 100%;
+  padding-left: 30px;
+
+  @media (max-width: @basic-breakpoints) {
+    color: @basic-black;
+    padding-left: 0;
+  }
 }

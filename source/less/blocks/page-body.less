@@ -1,0 +1,13 @@
+.page-body__noscroll {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    display: flex;
+    content: "";
+    background-color: rgba(3, 8, 13, .32);
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+  }
+}

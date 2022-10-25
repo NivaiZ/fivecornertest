@@ -6,10 +6,9 @@
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/less/**/*.less\" --syntax less",
-    "test": "npm run editorconfig && npm run stylelint && eslint source/js/",
+    "test": "npm run editorconfig && npm run stylelint",
     "build": "gulp build",
     "start": "gulp start",
-    "sprite": "gulp sprite",
     "img": "gulp images && gulp copy",
     "prod": "gulp prod"
   },
@@ -37,6 +36,7 @@
   },
   "homepage": "https://github.com/NivaiZ/fivecornertest#readme",
   "devDependencies": {
+    "@htmlacademy/editorconfig-cli": "github:htmlacademy/editorconfig-cli",
     "autoprefixer": "^10.4.12",
     "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",

@@ -4,13 +4,29 @@
   color: @basic-black;
   font-weight: @deafult-weight__bold;
   margin: 0;
+
+  @media (max-width: @basic-breakpoints) {
+    font-size: 30px;
+    line-height: 34px;
+  }
 }
 
 .breadcrumbs-bottom__list {
   display: flex;
   align-items: center;
   padding: 0;
+  padding-bottom: 30px;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
   margin: 0;
+
+  @media (max-width: @basic-breakpoints) {
+    padding-bottom: unset;
+    padding-top: unset;
+    padding-left: unset;
+    padding-right: unset;
+  }
 }
 
 .breadcrumbs-bottom__item {

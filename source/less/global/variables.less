@@ -1,9 +1,11 @@
 // colors
+
 @basic-gray: #9F9F9F;
 @basic-black: #000000;
 @basic-white: #FFFFFF;
 @basic-red: #D80909;
 @extra-gray: #DEDEDE;
+
 // fonts
 
 @font: 'Inter', 'Arial', sans-serif;
@@ -31,4 +33,14 @@
   max-width: 1110px;
   width: 100%;
   margin: 0 auto;
+
+  @media (max-width: @basic-breakpoints) {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+    max-width: 320px;
+  }
 }
+
+// breakpoin
+@basic-breakpoints: 1140px;
