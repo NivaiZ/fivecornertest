@@ -1,5 +1,5 @@
 FiveCorner
-[Демо проекта](https://nivaiz.github.io/***/build/index.html)
+[Демо проекта](https://nivaiz.github.io/fivecornertest/build/index.html)
 
 Вёрстка: [Илья Галятдинов](https://github.com/NivaiZ/)
 
