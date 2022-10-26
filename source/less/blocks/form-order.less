@@ -8,10 +8,7 @@
   font-weight: @deafult-weight__regular;
   margin: 0;
   word-break: break-word;
-
-  @media (max-width: @basic-breakpoints) {
-    padding-top: 15px;
-  }
+  padding-top: 15px;
 }
 
 .form-order__text {
@@ -80,6 +77,7 @@
 .form-order__box {
   display: flex;
   flex-direction: column;
+  padding-top: 15px;
 
   &:nth-child(1) {
     padding-right: 35px;
@@ -87,10 +85,6 @@
     @media (max-width: @basic-breakpoints) {
       padding-right: 0;
     }
-  }
-
-  @media (max-width: @basic-breakpoints) {
-    padding-top: 15px;
   }
 }
 
@@ -113,10 +107,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 50px;
+  padding-bottom: 70px;
 
   @media (max-width: @basic-breakpoints) {
     display: flex;
     flex-direction: column;
+    padding-bottom: 0;
   }
 }
 
@@ -163,7 +159,7 @@
 }
 
 .form-order__name {
-  color: @basic-gray;
+  color: @basic-black;
   font-weight: @deafult-weight__regular;
   font-size: 16px;
   line-height: 120%;

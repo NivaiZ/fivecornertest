@@ -1,3 +1,11 @@
+.header-block {
+  padding-top: 20px;
+
+  @media (max-width: @basic-breakpoints) {
+    padding-top: 0;
+  }
+}
+
 .header-block__icon {
   list-style: none;
   padding-left: 22px;
@@ -85,7 +93,7 @@
 
 .header-block__count {
   position: absolute;
-  right: 0px;
+  right: 0;
   top: -5px;
   z-index: 1;
   font-size: 12px;
@@ -106,6 +114,20 @@
 
 .header-block__content {
   list-style: none;
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: left 0.3s, opacity 0.3s;
+  max-width: 280px;
+  z-index: 7;
+  overflow: auto;
+  background-color: @basic-white;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  left: -100%;
 }
 
 .header-block__burger {
@@ -153,17 +175,6 @@
 }
 
 .header-block__burger--open .header-block__toggle {
-
-  &::after,
-  &::before {
-    transition: top 0.3s, transform 0.3s 0.5s;
-    width: 28px;
-    top: 0;
-    left: -5px;
-  }
-}
-
-.header-block__burger--open .header-block__toggle {
   background: 0 0;
   transition: background 0.1s 0.1s;
   z-index: 6;
@@ -177,23 +188,14 @@
     transform: rotate3d(0, 0, 1, -45deg);
     background-color: @basic-black;
   }
-}
 
-.header-block__content {
-  width: 100%;
-  height: 100vh;
-  opacity: 0;
-  pointer-events: none;
-  transition: left .3s;
-  max-width: 280px;
-  z-index: 7;
-  overflow: auto;
-  background-color: @basic-white;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  left: -100%;
+  &::after,
+  &::before {
+    transition: top 0.3s, transform 0.3s 0.5s;
+    width: 28px;
+    top: 0;
+    left: -5px;
+  }
 }
 
 .page-body .header-block__content--open {

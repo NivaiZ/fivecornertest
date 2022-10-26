@@ -108,7 +108,7 @@ var phoneMask = IMask(
 const element = document.querySelector('.form-order__select');
 const choices = new Choices(element, {
   searchEnabled: false,
-  itemSelectText: false,
+  itemSelectText: '',
 });
 
 
