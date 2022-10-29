@@ -2,11 +2,12 @@
   list-style: none;
   width: 100%;
   height: 700px;
-  margin: 0;
+  margin-top: -125px;
   padding: 0;
 
   @media (max-width: @basic-breakpoints) {
     height: 200px;
+    margin-top: unset;
   }
 }
 
@@ -23,14 +24,12 @@
 }
 
 .form-map__footnote {
-  display: flex;
   list-style: none;
   font-size: 40px;
   line-height: 46px;
   font-weight: @deafult-weight__bold;
   background-color: @basic-black;
   opacity: 0.8;
-  position: absolute;
   width: 100%;
 
   @media (max-width: @basic-breakpoints) {
@@ -47,9 +46,43 @@
   color: @basic-white;
   width: 100%;
   padding-left: 30px;
+  font-size: 40px;
+  line-height: 46px;
+  font-weight: @deafult-weight__bold;
 
   @media (max-width: @basic-breakpoints) {
     color: @basic-black;
     padding-left: 0;
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
+
+.form-map__total--align {
+  @media (max-width: 1140px) {
+    text-align: right;
+  }
+}
+
+.form-map__button {
+  display: flex;
+  list-style: none;
+}
+
+.form-map__footnote--mobile {
+  display: none;
+
+  @media (max-width: 1140px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.form-map__footnote--desk {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 1140px) {
+    display: none;
   }
 }

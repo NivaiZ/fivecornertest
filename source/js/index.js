@@ -88,8 +88,14 @@ function init() {
 
 
   const suggestView = new ymaps.SuggestView('search');
+  const suggestViewMobile = new ymaps.SuggestView('search__mobile');
 
   suggestView.events.add('select', (e) => {
+    const chosenAddress = e.get('item').value;
+    getPlaceBySuggestView(chosenAddress);
+  });
+
+  suggestViewMobile.events.add('select', (e) => {
     const chosenAddress = e.get('item').value;
     getPlaceBySuggestView(chosenAddress);
   });
@@ -99,9 +105,10 @@ function init() {
 ymaps.ready(init);
 
 // telefon mask
-var phoneMask = IMask(
+let phoneMask = IMask(
   document.getElementById('phone'), {
   mask: '+{7}(000)000-00-00'
+
 });
 
 // select dropdown
@@ -130,7 +137,8 @@ orderForm.addEventListener('submit', retrieveFormValue)
 const clickBurgerMenuFunction = () => {
   const burgerButton = document.querySelector(".header-block__burger");
   const contentMenu = document.querySelector('.header-block__content');
-  const bodyClass = document.querySelector('.page-body')
+  const bodyClass = document.querySelector('.page-body');
+  const closeBurgerMenu = document.querySelector('.header-block__button');
 
   burgerButton.addEventListener('click', () => {
     burgerButton.classList.toggle('header-block__burger--open');
@@ -138,7 +146,7 @@ const clickBurgerMenuFunction = () => {
     bodyClass.classList.toggle('page-body__noscroll');
   })
 
-  window.addEventListener('click', e => {
+  document.addEventListener('click', (e) => {
     const target = e.target
     if (!target.closest('.header-block__content') && !target.closest('.header-block__burger')) {
       contentMenu.classList.remove('header-block__content--open');
@@ -147,7 +155,7 @@ const clickBurgerMenuFunction = () => {
     }
   })
 
-  window.addEventListener("keydown", (evt) => {
+  document.addEventListener("keydown", (evt) => {
     if (evt.keyCode === 27) {
       if (contentMenu.classList.contains('header-block__content--open')) {
         evt.preventDefault();
@@ -158,6 +166,12 @@ const clickBurgerMenuFunction = () => {
     }
   });
 
+  closeBurgerMenu.addEventListener('click', () => {
+    contentMenu.classList.remove('header-block__content--open');
+    burgerButton.classList.remove('header-block__burger--open');
+    bodyClass.classList.remove('page-body__noscroll');
+  })
+
 }
 
 // search
@@ -166,10 +180,14 @@ const searchButton = document.querySelector('.search-header__item');
 const inputSearch = document.querySelector('.search-header__enter');
 const addClassOverlay = document.querySelector('.search-header__modal');
 const buttonSubmit = document.querySelector('.search-header__burger');
+const offsetWidth = document.documentElement.clientWidth;
 
 
 searchButton.addEventListener('click', (e) => {
-  inputSearch.focus();
+  if (offsetWidth < 1140) {
+    inputSearch.focus();
+  }
+
   inputSearch.classList.add('search-header__enter--open');
   addClassOverlay.classList.add('search-header__modal--open');
   buttonSubmit.classList.add('search-header__burger--open');
@@ -194,5 +212,16 @@ addClassOverlay.addEventListener('click', (e) => {
     buttonSubmit.classList.remove('search-header__burger--open');
   }
 })
+
+
+//onblur
+
+const inputMobile = document.querySelector('#email');
+
+inputMobile.onblur = function () {
+  if (!this.value.includes('@')) {
+    inputMobile.focus();
+  }
+};
 
 clickBurgerMenuFunction();

@@ -1,0 +1,57 @@
+.form-order__item .choices.is-focused .choices__list.choices__list--single .choices__item--selectable {
+  color: @basic-black;
+}
+
+.form-order__item .choices__inner {
+  min-height: unset;
+  border-bottom: 1px solid @basic-gray;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  padding: 7.5px 0 3.75px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  border-top: none;
+}
+
+.form-order__item .choices__list--single {
+  padding: 4px 0 4px 4px;
+}
+
+.form-order__item .choices__placeholder {
+  opacity: unset;
+}
+
+.form-order__item .choices[data-type*=select-one] {
+  &::after {
+    content: url("../img/arrow.png");
+    margin-top: unset;
+    border-style: none;
+    border-color: unset;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    transition: 0.5s rotate;
+  }
+}
+
+.form-order__item .choices__list--dropdown .choices__item,
+.choices__list[aria-expanded] .choices__item {
+  &:hover {
+    color: @basic-black;
+  }
+}
+
+.form-order__item .is-open .choices__list--dropdown,
+.is-open .choices__list[aria-expanded] {
+  border-color: @basic-gray;
+}
+
+.form-order__item .choices[data-type*=select-one].is-open::after {
+  margin-top: unset;
+  rotate: (180deg);
+  right: 0;
+  top: 30px;
+  bottom: 0;
+}
