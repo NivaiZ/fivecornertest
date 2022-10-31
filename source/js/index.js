@@ -1,20 +1,25 @@
 function init() {
-  var myPlacemark;
+  var myPlacemark,
+    myMap = new ymaps.Map('form-map', {
+      center: [55.753994, 37.622093],
+      zoom: 9
+    }, {
+      searchControlProvider: 'yandex#search'
+    });
 
-  var myMap = new ymaps.Map('form-map', {
-    center: [60.033081, 30.428086],
-    zoom: 16,
-    controls: ['zoomControl', 'geolocationControl', 'fullscreenControl']
-  });
-  myMap.behaviors.disable('scrollZoom');
-
+  // Слушаем клик на карте.
   myMap.events.add('click', function (e) {
     var coords = e.get('coords');
+
+    // Если метка уже создана – просто передвигаем ее.
     if (myPlacemark) {
       myPlacemark.geometry.setCoordinates(coords);
-    } else {
+    }
+    // Если нет – создаем.
+    else {
       myPlacemark = createPlacemark(coords);
       myMap.geoObjects.add(myPlacemark);
+      // Слушаем событие окончания перетаскивания на метке.
       myPlacemark.events.add('dragend', function () {
         getAddress(myPlacemark.geometry.getCoordinates());
       });
@@ -22,35 +27,17 @@ function init() {
     getAddress(coords);
   });
 
-  myGeoObject = new ymaps.GeoObject({
-    geometry: {
-      type: "Point",
-      coordinates: [60.033081, 30.428086]
-    },
-
-    properties: {
-      iconCaption: 'Проспект Просвещения, 99',
-
-    }
-  }, {
-    preset: 'islands#greenDotIconWithCaption',
-  }),
-    myPieChart = new ymaps.Placemark([
-      60.033081, 30.428086
-    ]);
-
-  myMap.geoObjects
-    .add(myGeoObject)
-
+  // Создание метки.
   function createPlacemark(coords) {
     return new ymaps.Placemark(coords, {
-      iconCaption: 'Уже ищу...'
+      iconCaption: 'поиск...'
     }, {
       preset: 'islands#violetDotIconWithCaption',
       draggable: true
     });
   }
 
+  // Определяем адрес по координатам (обратное геокодирование).
   function getAddress(coords) {
     myPlacemark.properties.set('iconCaption', 'поиск...');
     ymaps.geocode(coords).then(function (res) {
@@ -58,15 +45,18 @@ function init() {
 
       myPlacemark.properties
         .set({
+          // Формируем строку с данными об объекте.
           iconCaption: [
+            // Название населенного пункта или вышестоящее административно-территориальное образование.
             firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+            // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
             firstGeoObject.getThoroughfare() || firstGeoObject.getPremise()
           ].filter(Boolean).join(', '),
+          // В качестве контента балуна задаем строку с адресом объекта.
           balloonContent: firstGeoObject.getAddressLine()
         });
     });
   }
-
   const getPlaceBySuggestView = (siggestViewGuessValue) => {
     ymaps.geocode(siggestViewGuessValue).then(res => {
       const firstGeoObject = res.geoObjects.get(0);
@@ -99,7 +89,6 @@ function init() {
     const chosenAddress = e.get('item').value;
     getPlaceBySuggestView(chosenAddress);
   });
-
 }
 
 ymaps.ready(init);
