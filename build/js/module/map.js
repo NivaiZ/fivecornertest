@@ -87,7 +87,7 @@ const mapHandler = () => {
         });
       }
 
-      const suggestViewMobile = new ymaps.SuggestView('search__mobile');
+      const suggestViewMobile = new ymaps.SuggestView('search');
       const suggestView = new ymaps.SuggestView('search__mobile');
 
       suggestViewMobile.events.add('select', (e) => {
