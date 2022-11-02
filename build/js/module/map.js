@@ -104,4 +104,4 @@ const mapHandler = () => {
     ymaps.ready(init);
   })
 }
-export {mapHandler}
+export {mapHandler};
