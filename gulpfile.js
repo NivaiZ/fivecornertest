@@ -1,11 +1,10 @@
 "use strict";
 const gulp = require("gulp");
-let plumber = require("gulp-plumber");
+const plumber = require("gulp-plumber");
 const sourcemap = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const server = require("browser-sync").create();
-const csso = require("gulp-csso");
 const htmlmin = require("gulp-htmlmin");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin");
@@ -13,31 +12,7 @@ const svgstore = require("gulp-svgstore")
 const posthtml = require("gulp-posthtml");
 const include = require("posthtml-include");
 const del = require("del");
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
-const terser = require("gulp-terser");
 const less = require("gulp-less");
-
-gulp.task("scripts:index", function () {
-  return gulp.src(["source/js/module/*.js", "source/js/*.js"])
-    .pipe(plumber())
-    .pipe(concat("index.js"))
-    .pipe(gulp.dest("build/js"))
-    .pipe(gulp.dest("build/js"));
-});
-
-gulp.task("scripts-min:index", function () {
-  return gulp.src(["source/js/module/*.js", "source/js/*.js"])
-    .pipe(terser())
-    .pipe(plumber())
-    .pipe(concat("index.js"))
-    .pipe(gulp.dest("build/js"))
-    .pipe(uglify())
-    .pipe(rename({
-      suffix: ".min"
-    }))
-    .pipe(gulp.dest("build/js"));
-});
 
 gulp.task("css", function () {
   return gulp.src("source/less/style.less")
@@ -140,6 +115,6 @@ gulp.task("clean", function () {
   return del("build");
 });
 
-gulp.task("build", gulp.series("clean", "copy", 'scripts:index', "css", "sprite", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "sprite", "html"));
 gulp.task("start", gulp.series("build", "server"));
-gulp.task("prod", gulp.series("clean", "copy", 'scripts-min:index', "css", "sprite", "html"));
+gulp.task("prod", gulp.series("clean", "copy", "css", "sprite", "html"));

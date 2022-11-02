@@ -330,6 +330,9 @@ template {
   overflow: hidden;
 }
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   max-width: 1110px;
   width: 100%;
   margin: 0 auto;
@@ -342,11 +345,15 @@ template {
     max-width: 320px;
   }
 }
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+html,
 body {
   font-family: 'Inter', 'Arial', sans-serif;
+  height: 100%;
 }
 .header-block {
   padding-top: 20px;
@@ -855,6 +862,7 @@ body {
 }
 .form-order__textarea {
   resize: none;
+  padding-bottom: 0;
 }
 .form-order__caption {
   visibility: hidden;
@@ -874,6 +882,7 @@ body {
 @media (max-width: 1140px) {
   .form-order__block {
     padding-bottom: 40px;
+    width: unset;
   }
 }
 .form-order__basket {
@@ -1152,6 +1161,9 @@ body {
     margin-top: 0;
   }
 }
+.form-map__item .ymaps-2-1-79-map {
+  width: 100% !important;
+}
 .form-map__footnote {
   list-style: none;
   font-size: 40px;
@@ -1287,6 +1299,11 @@ body {
   padding: 0;
   margin: 0;
   grid-column: 2/2;
+}
+@media (max-width: 1140px) {
+  .form-wrapper__item {
+    grid-column: unset;
+  }
 }
 .form-wrapper__block {
   display: flex;
