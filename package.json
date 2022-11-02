@@ -8,9 +8,7 @@
     "stylelint": "stylelint \"source/less/**/*.less\" --syntax less",
     "test": "npm run editorconfig && npm run stylelint",
     "build": "gulp build",
-    "start": "gulp start",
-    "img": "gulp images && gulp copy",
-    "prod": "gulp prod"
+    "start": "gulp"
   },
   "browserslist": [
     "last 2 versions",
@@ -39,11 +37,12 @@
     "@htmlacademy/editorconfig-cli": "github:htmlacademy/editorconfig-cli",
     "autoprefixer": "^10.4.12",
     "browser-sync": "^2.27.10",
-    "del": "^4.1.0",
+    "del": "^4.1.1",
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-imagemin": "^8.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-less": "^5.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.1",

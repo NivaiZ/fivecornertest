@@ -1,6 +1,6 @@
 "use strict";
 const gulp = require("gulp");
-const plumber = require("gulp-plumber");
+let plumber = require("gulp-plumber");
 const sourcemap = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
@@ -8,23 +8,29 @@ const server = require("browser-sync").create();
 const csso = require("gulp-csso");
 const htmlmin = require("gulp-htmlmin");
 const rename = require("gulp-rename");
+const imagemin = require("gulp-imagemin");
 const svgstore = require("gulp-svgstore")
 const posthtml = require("gulp-posthtml");
 const include = require("posthtml-include");
 const del = require("del");
+const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 const terser = require("gulp-terser");
 const less = require("gulp-less");
 
 gulp.task("scripts:index", function () {
-  return gulp.src(["source/js/*.js"])
+  return gulp.src(["source/js/module/*.js", "source/js/*.js"])
+    .pipe(plumber())
+    .pipe(concat("index.js"))
     .pipe(gulp.dest("build/js"))
+    .pipe(gulp.dest("build/js"));
 });
 
 gulp.task("scripts-min:index", function () {
-  return gulp.src(["source/js/*.js"])
+  return gulp.src(["source/js/module/*.js", "source/js/*.js"])
     .pipe(terser())
     .pipe(plumber())
+    .pipe(concat("index.js"))
     .pipe(gulp.dest("build/js"))
     .pipe(uglify())
     .pipe(rename({
@@ -73,6 +79,29 @@ gulp.task("refresh", function (done) {
 
 gulp.task("images", function () {
   return gulp.src("source/img/*.{png,jpg,svg}")
+    .pipe(imagemin([
+      imagemin.optipng({
+        optimizationLevel: 3
+      }),
+      imagemin.jpegtran({
+        progressive: true
+      }),
+      imagemin.svgo({
+        plugins: [{
+          cleanupIDs: false
+        },
+        {
+          removeViewBox: false
+        },
+        {
+          convertPathData: false
+        },
+        {
+          mergePaths: false
+        },
+        ],
+      })
+    ]))
     .pipe(gulp.dest("source/img"));
 });
 
@@ -99,6 +128,7 @@ gulp.task("copy", function () {
   return gulp.src([
     "source/fonts/**/*.{woff,woff2}",
     "source/img/**",
+    "source//*.ico",
     "source/js/*.js"
   ], {
     base: "source"
@@ -111,5 +141,5 @@ gulp.task("clean", function () {
 });
 
 gulp.task("build", gulp.series("clean", "copy", 'scripts:index', "css", "sprite", "html"));
-gulp.task("start", gulp.series("server"));
+gulp.task("start", gulp.series("build", "server"));
 gulp.task("prod", gulp.series("clean", "copy", 'scripts-min:index', "css", "sprite", "html"));

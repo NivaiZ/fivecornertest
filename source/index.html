@@ -31,7 +31,7 @@
                   <use xlink:href="./img/sprite.svg#search-header"></use>
                 </svg>
               </button>
-              <input class="search-header__enter" type="search" placeholder="Поиск" name="searchForm" autofocus
+              <input class="search-header__enter" type="search" placeholder="Поиск" name="searchForm"
                 aria-label="Поиск">
             </form>
           </li>
@@ -152,12 +152,12 @@
                   <li class="form-order__mobile form-order__suggest">
                     <label class="form-order__caption form-order__title" for="search">Адрес</label>
                     <input class="form-order__address form-order__validation form-order__placeholder" id="search"
-                      name="address" type="text" placeholder="example" required aria-label="Поле с адресом">
+                      name="search" type="text" placeholder="example" value=" " aria-label="Поле с адресом">
                   </li>
 
                   <li class="form-map__item" id="form-map">
                     <script
-                      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=c0183649-9564-47e9-a344-5e6d830db0fc"></script>
+                      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=e58371d5-3f09-447b-8eee-725d5b3480aa"></script>
                   </li>
 
                   <li class="form-map__footnote form-map__footnote--desk">
@@ -169,9 +169,10 @@
                 <ul class="form-wrapper__block">
 
                   <li class="form-order__desk form-order__suggest">
-                    <label class="form-order__caption form-order__title" for="search">Адрес</label>
+                    <label class="form-order__caption form-order__title" for="search__mobile">Адрес</label>
                     <input class="form-order__address form-order__validation form-order__placeholder"
-                      id="search__mobile" placeholder="example" name="address" required aria-label="Поле с адресом">
+                      id="search__mobile" placeholder="example" value=" " name="search__mobile" required
+                      aria-label="Поле с адресом">
                   </li>
 
                   <li class="form-order__inner">
@@ -377,7 +378,7 @@
     </main>
     <script src="https://unpkg.com/imask"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/choices.js/10.1.0/choices.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/index.js" type="module"></script>
   </div>
 </body>
 

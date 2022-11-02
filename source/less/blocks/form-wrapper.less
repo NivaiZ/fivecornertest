@@ -13,6 +13,10 @@
   padding: 0;
   margin: 0;
   grid-column: 2/2;
+
+  @media (max-width: @basic-breakpoints) {
+    grid-column: unset;
+  }
 }
 
 .form-wrapper__block {
